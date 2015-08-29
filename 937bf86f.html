@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
-    <title>设备联动</title>
+    <title>MSM1528</title>
     <style>
         *{margin:0px;padding:0px;}
         body{
@@ -70,10 +70,10 @@
 <body>
     <div class="content">
         <div class="title">
-          <span>温湿度实时检测</span>
+          <span>MSM1528实时测量值</span>
         </div>        
         <div class="temphumishow">
-            <table width="100%" height="94px">
+            <table width="100%" height="60px">
                 <tr align="center">
                     <td valign="middle" align="right"><img src="./image/01-temperature.svg" alt=""></td>
                     <td valign="middle" align="left">&nbsp;&nbsp;<span>温度</span><br/>&nbsp;&nbsp;<span class="tempcls" id="tempid">28℃</span></td>
@@ -84,13 +84,83 @@
         </div>        
         <div class="switrgbhow">
             <table width="100%">
-                <tr align="center" height="114px">
+                <tr align="center" height="60px">
                     <td valign="middle"><img id="switchbtn" src="./image/03-turn-on.svg" alt=""><br/><span id="switchspan">开</span></td>
                     <!-- <td valign="middle"><hr class="hrline" size="80" /></td> -->
                     <td valign="middle"><img id="rgbimgid" src="./image/02-red.svg" alt=""><br/><span>温度阀值</span></td>
                 </tr>                
             </table>
         </div>
+        <div class="switrgbhow">
+            <table width="100%">
+                <tr align="left" height="20px">                                       
+                    <td valign="middle" align="left">   6个测量值 1 2 3 4 5 </td> 
+                    <td valign="middle" align="left">  1分钟移动平均值</td>                      
+                    <td valign="middle" align="left">  1小时移动平均值</td> 
+                    <td valign="middle" align="left"> 24小时移动平均值</td>  
+                </tr>                
+            </table>        
+        
+            
+            <table width="100%">
+                <tr align="left" height="20px"> 
+                    <td valign="middle" align="left"> PM2.5(ug/m3):                                 </td>                                       
+                    <td valign="middle" align="left"> <span class="tempcls" id="tempid">100.0</span></td>                      
+                    <td valign="middle" align="left"> <span class="tempcls" id="tempid">101.0</span></td> 
+                    <td valign="middle" align="left"> <span class="tempcls" id="tempid">102.0</span></td>  
+                </tr>                
+            </table>       
+        
+            
+            <table width="100%">
+                <tr align="left" height="20px"> 
+                    <td valign="middle" align="left"> PM10 (ug/m3):                                 </td>                                       
+                    <td valign="middle" align="left"> <span class="tempcls" id="humiid">103.0</span></td>                      
+                    <td valign="middle" align="left"> <span class="tempcls" id="humiid">104.0</span></td> 
+                    <td valign="middle" align="left"> <span class="tempcls" id="humiid">105.0</span></td>  
+                </tr>                
+            </table>       
+            
+        
+            
+            <table width="100%">
+                <tr align="left" height="20px"> 
+                    <td valign="middle" align="left"> C o 2 ( ppm):                                 </td>                                       
+                    <td valign="middle" align="left"> <span class="tempcls" id="tempid">10000</span></td>                      
+                    <td valign="middle" align="left"> <span class="tempcls" id="tempid">10001</span></td> 
+                    <td valign="middle" align="left"> <span class="tempcls" id="tempid">10002</span></td>  
+                </tr>                
+            </table>  
+            
+            <table width="100%">
+                <tr align="left" height="20px"> 
+                    <td valign="middle" align="left"> VOC ( ug/m3):                                 </td>                                       
+                    <td valign="middle" align="left"> <span class="tempcls" id="tempid">0.001</span></td>                      
+                    <td valign="middle" align="left"> <span class="tempcls" id="tempid">0.002</span></td> 
+                    <td valign="middle" align="left"> <span class="tempcls" id="tempid">0.003</span></td>  
+                </tr>                
+            </table>   
+            
+            <table width="100%">
+                <tr align="left" height="20px"> 
+                    <td valign="middle" align="left"> Temperat(℃):                                 </td>                                       
+                    <td valign="middle" align="left"> <span class="tempcls" id="tempid">22.01</span></td>                      
+                    <td valign="middle" align="left"> <span class="tempcls" id="tempid">23.02</span></td> 
+                    <td valign="middle" align="left"> <span class="tempcls" id="tempid">24.03</span></td>  
+                </tr>                
+            </table>    
+            
+            <table width="100%">
+                <tr align="left" height="20px"> 
+                    <td valign="middle" align="left"> Humidit(%RH):                                 </td>                                       
+                    <td valign="middle" align="left"> <span class="tempcls" id="tempid">50.01</span></td>                      
+                    <td valign="middle" align="left"> <span class="tempcls" id="tempid">51.02</span></td> 
+                    <td valign="middle" align="left"> <span class="tempcls" id="tempid">52.03</span></td>  
+                </tr>                
+            </table>                                                            
+                                   
+        </div>        
+        
         <!-- <div class="humihis">
             <div id="device_id"></div>
             <div id="debug"></div>
