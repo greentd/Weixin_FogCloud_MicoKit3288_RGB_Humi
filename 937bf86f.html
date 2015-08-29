@@ -41,11 +41,11 @@
             height: 50px;
         }
         .tempcls{
-            font-size: 30px;
+            font-size: 15px;
             color: #e13e4e; 
         }
         .humicls{
-            font-size: 30px;
+            font-size: 15px;
             color: #80a72d; 
         }
         .switrgbhow{
@@ -246,9 +246,9 @@
             // console.log('温度2 ' +  tempval);
             if("undefined" != typeof(tempval)){
                 // 显示温度
-                $("#tempid").text(tempval+"℃");
+                $("#tempid").text(tempval); //+"℃");
                 // 显示湿度
-                $("#humiid").text(msgjson.dht11_humidity+'%');
+                $("#humiid").text(msgjson.dht11_humidity);//+'%');
                 // 温度超过29则红灯亮，20-29之间则绿灯亮，低于20黄灯亮
                 if(tempval > "29"){
                     led_red();
