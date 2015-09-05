@@ -99,6 +99,60 @@
         </div> -->
     </div>
 </div>
+
+
+
+    <table border="5" cellpadding="5" cellspacing="10" >
+        <caption>MSM1528测量值</caption>
+        <tr>
+            <td></td>
+            <td>1分钟均值</td>
+            <td>1小时均值</td>
+            <td>24小时均值</td>
+
+        </tr>
+        <tr>
+            <td>PM2.5</td>
+            <td><span class="humicls" id="pm25_1m_id">41</span></td>
+            <td><span class="humicls" id="pm25_1h_id">42</span></td>
+            <td><span class="humicls" id="pm25_24_id">43</span></td>
+        </tr>
+        <tr>
+            <td>PM10</td>
+            <td><span class="humicls" id="pm10_1m_id">41</span></td>
+            <td><span class="humicls" id="pm10_1h_id">42</span></td>
+            <td><span class="humicls" id="pm10_24_id">43</span></td>
+        </tr>
+        <tr>
+            <td>Co2</td>
+            <td><span class="humicls" id="co2_1m_id">41</span></td>
+            <td><span class="humicls" id="co2_1h_id">42</span></td>
+            <td><span class="humicls" id="co2_24_id">43</span></td>
+        </tr>
+        <tr>
+            <td>VOC</td>
+            <td><span class="humicls" id="voc_1m_id">41</span></td>
+            <td><span class="humicls" id="voc_1h_id">42</span></td>
+            <td><span class="humicls" id="voc_24_id">43</span></td>
+        </tr>
+        <tr>
+            <td>Temp</td>
+            <td><span class="humicls" id="temp_1m_id">41</span></td>
+            <td><span class="humicls" id="temp_1h_id">42</span></td>
+            <td><span class="humicls" id="temp_24_id">43</span></td>
+        </tr>
+        <tr>
+            <td>Humi</td>
+            <td><span class="humicls" id="humi_1m_id">41</span></td>
+            <td><span class="humicls" id="humi_1h_id">42</span></td>
+            <td><span class="humicls" id="humi_24_id">43</span></td>
+        </tr>
+
+
+    </table>
+
+
+
 <script src="./js/mqttws31.js"></script>
 <script src="./js/jquery-2.1.3.js"></script>
 <script>
@@ -176,7 +230,31 @@
             // console.log('温度 ' +  msgjson.dht11_temperature);
             var tempval = msgjson.dht11_temperature;
             var humival = msgjson.dht11_humidity;
+
             var pm25_1m_val = msgjson.pm25_1m;
+            var pm25_1h_val = msgjson.pm25_1h;
+            var pm25_24_val = msgjson.pm25_24;
+
+            var pm10_1m_val = msgjson.pm10_1m;
+            var pm10_1h_val = msgjson.pm10_1h;
+            var pm10_24_val = msgjson.pm10_24;
+
+            var co2_1m_val = msgjson.co2_1m;
+            var co2_1h_val = msgjson.co2_1h;
+            var co2_24_val = msgjson.co2_24;
+
+            var voc_1m_val = msgjson.voc_1m;
+            var voc_1h_val = msgjson.voc_1h;
+            var voc_24_val = msgjson.voc_24;
+
+            var temp_1m_val = msgjson.temp_1m;
+            var temp_1h_val = msgjson.temp_1h;
+            var temp_24_val = msgjson.temp_24;
+
+            var humi_1m_val = msgjson.humi_1m;
+            var humi_1h_val = msgjson.humi_1h;
+            var humi_24_val = msgjson.humi_24;
+
             // console.log('温度2 ' +  tempval);
             if("undefined" != typeof(tempval)){
                 // 显示温度
@@ -185,6 +263,28 @@
                 $("#humiid").text(humival+'%');
                 //PM2.5 1分钟
                 $("#pm25_1m_id").text(pm25_1m_val);
+                $("#pm25_1h_id").text(pm25_1h_val);
+                $("#pm25_24h_id").text(pm25_24h_val);
+
+                $("#pm10_1m_id").text(pm10_1m_val);
+                $("#pm10_1h_id").text(pm10_1h_val);
+                $("#pm10_24h_id").text(pm10_24h_val);
+
+                $("#co2_1m_id").text(co2_1m_val);
+                $("#co2_1h_id").text(co2_1h_val);
+                $("#co2_24h_id").text(co2_24h_val);
+
+                $("#pm25_1m_id").text(voc_1m_val);
+                $("#pm25_1h_id").text(voc_1h_val);
+                $("#voc_24h_id").text(voc_24h_val);
+
+                $("#temp_1m_id").text(temp_1m_val);
+                $("#temp_1h_id").text(temp_1h_val);
+                $("#temp_24h_id").text(temp_24h_val);
+
+                $("#humi_1m_id").text(humi_1m_val);
+                $("#humi_1h_id").text(humi_1h_val);
+                $("#humi_24h_id").text(humi_24h_val);
 
                 // 温度超过29则红灯亮，20-29之间则绿灯亮，低于20黄灯亮
                 if(tempval > "29"){
