@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
-    <title>设备联动</title>
+    <title>MSM1528</title>
     <style>
         *{margin:0px;padding:0px;}
         body{
@@ -79,6 +79,8 @@
                     <td valign="middle" align="left">&nbsp;&nbsp;<span>温度</span><br/>&nbsp;&nbsp;<span class="tempcls" id="tempid">28℃</span></td>
                     <td valign="middle" align="right"><img src="./image/01-humidity.svg" alt=""></td>
                     <td valign="middle" align="left">&nbsp;&nbsp;<span>湿度</span><br/>&nbsp;&nbsp;<span class="humicls" id="humiid">42%</span></td>
+
+                    <td valign="middle" align="left">&nbsp;&nbsp;<span>PM25</span><br/>&nbsp;&nbsp;<span class="humicls" id="pm25_1m_id">42</span></td>
                 </tr>
             </table>
         </div>        
@@ -174,14 +176,28 @@
             // console.log('温度 ' +  msgjson.dht11_temperature);
             var tempval = msgjson.dht11_temperature;
             var humival = msgjson.dht11_humidity;
+            var pm25_1m_val = msgjson.pm25_1m;
             // console.log('温度2 ' +  tempval);
-            //if("undefined" != typeof(tempval))
-            //{
+            if("undefined" != typeof(tempval)){
                 // 显示温度
                 $("#tempid").text(tempval+"℃");
                 // 显示湿度
                 $("#humiid").text(humival+'%');
-            //}
+
+                $("#pm25_1m_id").text(pm25_1m_val);
+
+                // 温度超过29则红灯亮，20-29之间则绿灯亮，低于20黄灯亮
+                if(tempval > "29"){
+                    led_red();
+                    $("#rgbimgid").attr("src", "./image/02-red.svg");
+                }else if(tempval < "30" && (tempval > "19")){
+                    led_green();
+                    $("#rgbimgid").attr("src", "./image/02-green.svg");
+                }else if(tempval < "20"){
+                    led_yellow();
+                    $("#rgbimgid").attr("src", "./image/02-yellow.svg");
+                }
+            }
         }
 
         // 控制按钮显示的事件
@@ -200,6 +216,24 @@
             }
             client.publish(topic, commond);
         });
+
+        function led_red() {
+            var topic = device_id+'/in';
+            var commond = '{"rgbled_switch":true,"rgbled_hues":0, "rgbled_saturation":100, "rgbled_brightness":100}'; 
+            client.publish(topic, commond);
+        }
+
+        function led_green() {
+            var topic = device_id+'/in';
+            var commond = '{"rgbled_switch":true,"rgbled_hues":120, "rgbled_saturation":100, "rgbled_brightness":100}'; 
+            client.publish(topic, commond);
+        }
+
+        function led_yellow() {
+            var topic = device_id+'/in';
+            var commond = '{"rgbled_switch":true,"rgbled_hues":60, "rgbled_saturation":100, "rgbled_brightness":100}'; 
+            client.publish(topic, commond);
+        }
     }
 
     // 日志打印在页面的部分    
