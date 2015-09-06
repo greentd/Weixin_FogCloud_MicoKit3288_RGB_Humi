@@ -82,19 +82,8 @@
                 </tr>
             </table>
         </div>        
-        <div class="switrgbhow">
-            <table width="100%">
-                <tr align="center" height="114px">
-                    <td valign="middle"><img id="switchbtn" src="./image/03-turn-on.svg" alt=""><br/><span id="switchspan">开</span></td>
-                    <!-- <td valign="middle"><hr class="hrline" size="80" /></td> -->
-                    <td valign="middle"><img id="rgbimgid" src="./image/02-red.svg" alt=""><br/><span>温度阀值</span></td>
-                </tr>                
-            </table>
-        </div>
-        <!-- <div class="humihis">
-            <div id="device_id"></div>
-            <div id="debug"></div>
-        </div> -->
+
+
     </div>
 </div>
 
@@ -285,26 +274,9 @@
                 $("#humi_24h_id").text(humi_24h_val);
             }
         }
-
-        // 控制按钮显示的事件
-        $("#switchbtn").click(function() {
-            var topic = device_id+'/in';
-            var commond;
-            var swtimg = $("#switchbtn").attr("src");
-            if("./image/03-turn-on.svg" == swtimg){
-                commond = '{"device_switch":false}';
-                $("#switchbtn").attr("src", "./image/03-turn-off.svg");
-                $("#switchspan").text("关");
-            }else{
-                commond = '{"device_switch":true}';
-                $("#switchbtn").attr("src", "./image/03-turn-on.svg");
-                $("#switchspan").text("开");
-            }
-            client.publish(topic, commond);
-        });
     }
 
-   
+
 
 </script>
 </body>
