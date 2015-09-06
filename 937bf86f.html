@@ -86,15 +86,9 @@
             <table width="100%">
                 <tr align="center" height="114px">
                     <td valign="middle"><img id="switchbtn" src="./image/03-turn-on.svg" alt=""><br/><span id="switchspan">开</span></td>
-                    <!-- <td valign="middle"><hr class="hrline" size="80" /></td> -->
-                    <td valign="middle"><img id="rgbimgid" src="./image/02-red.svg" alt=""><br/><span>温度阀值</span></td>
                 </tr>                
             </table>
         </div>
-        <!-- <div class="humihis">
-            <div id="device_id"></div>
-            <div id="debug"></div>
-        </div> -->
     </div>
 </div>
 
@@ -253,8 +247,7 @@
             var humi_1h_val = msgjson.hum_1h;
             var humi_24h_val = msgjson.hum_24h;
 
-            // console.log('温度2 ' +  tempval);
-            if("undefined" != typeof(tempval)){
+
                 // 显示温度
                 $("#tempid").text(tempval+"℃");
                 // 显示湿度
@@ -283,19 +276,6 @@
                 $("#humi_1m_id").text(humi_1m_val);
                 $("#humi_1h_id").text(humi_1h_val);
                 $("#humi_24h_id").text(humi_24h_val);
-
-                // 温度超过29则红灯亮，20-29之间则绿灯亮，低于20黄灯亮
-                if(tempval > "29"){
-                    led_red();
-                    $("#rgbimgid").attr("src", "./image/02-red.svg");
-                }else if(tempval < "30" && (tempval > "19")){
-                    led_green();
-                    $("#rgbimgid").attr("src", "./image/02-green.svg");
-                }else if(tempval < "20"){
-                    led_yellow();
-                    $("#rgbimgid").attr("src", "./image/02-yellow.svg");
-                }
-            }
         }
 
         // 控制按钮显示的事件
@@ -315,46 +295,6 @@
             client.publish(topic, commond);
         });
 
-        function led_red() {
-            var topic = device_id+'/in';
-            var commond = '{"rgbled_switch":true,"rgbled_hues":0, "rgbled_saturation":100, "rgbled_brightness":100}'; 
-            client.publish(topic, commond);
-        }
-
-        function led_green() {
-            var topic = device_id+'/in';
-            var commond = '{"rgbled_switch":true,"rgbled_hues":120, "rgbled_saturation":100, "rgbled_brightness":100}'; 
-            client.publish(topic, commond);
-        }
-
-        function led_yellow() {
-            var topic = device_id+'/in';
-            var commond = '{"rgbled_switch":true,"rgbled_hues":60, "rgbled_saturation":100, "rgbled_brightness":100}'; 
-            client.publish(topic, commond);
-        }
-    }
-
-    // 日志打印在页面的部分    
-    // var i = 0;
-    // console.log = (function(old_funct, div_log) {
-    //     return function(text) {
-    //         old_funct(text);
-    //         var p = '';
-    //         if (i%2 == 0)
-    //             p = '<p>';
-    //         else
-    //             p = '<p class=\'gray\'>';
-
-    //         if (typeof text === "object")
-    //             div_log.innerHTML += p + JSON.stringify(text) + '</p>';
-    //         else
-    //             div_log.innerHTML += p + text + '</p>';
-
-    //         div_log.scrollTop = div_log.scrollHeight;
-    //         i += 1;
-    //     };
-    // } (console.log.bind(console), document.getElementById("debug")));
-    // console.error = console.debug = console.info =  console.log;
 
 </script>
 </body>
