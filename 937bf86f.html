@@ -155,9 +155,6 @@
             // msgindex++;
             // console.log('设备上报:' +  message.payloadString);
             msgjson = $.parseJSON(message.payloadString);
-            // console.log('温度 ' +  msgjson.dht11_temperature);
-            var tempval = msgjson.dht11_temperature;
-            var humival = msgjson.dht11_humidity;
 
             var pm25_1m_val = msgjson.pm25_1m;
             var pm25_1h_val = msgjson.pm25_1h;
@@ -183,12 +180,7 @@
             var humi_1h_val = msgjson.hum_1h;
             var humi_24h_val = msgjson.hum_24h;
 
-            // console.log('温度2 ' +  tempval);
-            if("undefined" != typeof(tempval)){
-                // 显示温度
-                $("#tempid").text(tempval+"℃");
-                // 显示湿度
-                $("#humiid").text(humival+'%');
+
                 //PM2.5 1分钟
                 $("#pm25_1m_id").text(pm25_1m_val);
                 $("#pm25_1h_id").text(pm25_1h_val);
@@ -213,7 +205,6 @@
                 $("#humi_1m_id").text(humi_1m_val);
                 $("#humi_1h_id").text(humi_1h_val);
                 $("#humi_24h_id").text(humi_24h_val);
-            }
         }
     }
 
