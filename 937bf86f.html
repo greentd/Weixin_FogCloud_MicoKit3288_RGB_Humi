@@ -86,9 +86,15 @@
             <table width="100%">
                 <tr align="center" height="114px">
                     <td valign="middle"><img id="switchbtn" src="./image/03-turn-on.svg" alt=""><br/><span id="switchspan">开</span></td>
+                    <!-- <td valign="middle"><hr class="hrline" size="80" /></td> -->
+                    <td valign="middle"><img id="rgbimgid" src="./image/02-red.svg" alt=""><br/><span>温度阀值</span></td>
                 </tr>                
             </table>
         </div>
+        <!-- <div class="humihis">
+            <div id="device_id"></div>
+            <div id="debug"></div>
+        </div> -->
     </div>
 </div>
 
@@ -247,7 +253,8 @@
             var humi_1h_val = msgjson.hum_1h;
             var humi_24h_val = msgjson.hum_24h;
 
-
+            // console.log('温度2 ' +  tempval);
+            if("undefined" != typeof(tempval)){
                 // 显示温度
                 $("#tempid").text(tempval+"℃");
                 // 显示湿度
@@ -276,6 +283,7 @@
                 $("#humi_1m_id").text(humi_1m_val);
                 $("#humi_1h_id").text(humi_1h_val);
                 $("#humi_24h_id").text(humi_24h_val);
+            }
         }
 
         // 控制按钮显示的事件
@@ -294,7 +302,9 @@
             }
             client.publish(topic, commond);
         });
+    }
 
+   
 
 </script>
 </body>
