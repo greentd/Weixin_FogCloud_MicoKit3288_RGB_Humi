@@ -155,55 +155,49 @@
             // console.log('设备上报:' +  message.payloadString);
             msgjson = $.parseJSON(message.payloadString);
 
-            var pm25_1m_val = msgjson.pm25_1m;
             var pm25_1h_val = msgjson.pm25_1h;
-            var pm25_24h_val = msgjson.pm25_24h;
-
-            var pm10_1m_val = msgjson.pm10_1m;
             var pm10_1h_val = msgjson.pm10_1h;
-            var pm10_24h_val = msgjson.pm10_24h;
-
-            var temp_1m_val = msgjson.tem_1m;
             var temp_1h_val = msgjson.tem_1h;
-            var temp_24h_val = msgjson.tem_24h;
-
-            var humi_1m_val = msgjson.hum_1m;
             var humi_1h_val = msgjson.hum_1h;
-            var humi_24h_val = msgjson.hum_24h;
-
-            var co2_1m_val = msgjson.co2_1m;
             var co2_1h_val = msgjson.co2_1h;
-            var co2_24h_val = msgjson.co2_24h;
-
-            var voc_1m_val = msgjson.voc_1m;
             var voc_1h_val = msgjson.voc_1h;
+
+            var pm25_1m_val = msgjson.pm25_1m;
+            var pm10_1m_val = msgjson.pm10_1m;
+            var temp_1m_val = msgjson.tem_1m;
+            var humi_1m_val = msgjson.hum_1m;
+            var co2_1m_val = msgjson.co2_1m;
+            var voc_1m_val = msgjson.voc_1m;
+
+            var pm25_24h_val = msgjson.pm25_24h;
+            var pm10_24h_val = msgjson.pm10_24h;
+            var temp_24h_val = msgjson.tem_24h;
+            var humi_24h_val = msgjson.hum_24h;
+            var co2_24h_val = msgjson.co2_24h;
             var voc_24h_val = msgjson.voc_24h;
 
 
                 //PM2.5 1分钟
-                $("#pm25_1m_id").text(pm25_1m_val);
-                $("#pm25_1h_id").text(pm25_1h_val);
-                $("#pm25_24h_id").text(pm25_24h_val);
+            $("#pm25_1h_id").text(pm25_1h_val);
+            $("#pm10_1h_id").text(pm10_1h_val);
+            $("#temp_1h_id").text(temp_1h_val);
+            $("#humi_1h_id").text(humi_1h_val);
+            $("#co2_1h_id").text(co2_1h_val);
+            $("#voc_1h_id").text(voc_1h_val);
 
-                $("#pm10_1m_id").text(pm10_1m_val);
-                $("#pm10_1h_id").text(pm10_1h_val);
-                $("#pm10_24h_id").text(pm10_24h_val);
+            $("#pm25_1m_id").text(pm25_1m_val);
+            $("#pm10_1m_id").text(pm10_1m_val);
+            $("#temp_1m_id").text(temp_1m_val);
+            $("#humi_1m_id").text(humi_1m_val);
+            $("#co2_1m_id").text(co2_1m_val);
+            $("#voc_1m_id").text(voc_1m_val);
 
-                $("#temp_1m_id").text(temp_1m_val);
-                $("#temp_1h_id").text(temp_1h_val);
-                $("#temp_24h_id").text(temp_24h_val);
-
-                $("#humi_1m_id").text(humi_1m_val);
-                $("#humi_1h_id").text(humi_1h_val);
-                $("#humi_24h_id").text(humi_24h_val);
-
-                $("#co2_1m_id").text(co2_1m_val);
-                $("#co2_1h_id").text(co2_1h_val);
-                $("#co2_24h_id").text(co2_24h_val);
-
-                $("#voc_1m_id").text(voc_1m_val);
-                $("#voc_1h_id").text(voc_1h_val);
-                $("#voc_24h_id").text(voc_24h_val);
+            $("#pm25_24h_id").text(pm25_24h_val);
+            $("#pm10_24h_id").text(pm10_24h_val);
+            $("#temp_24h_id").text(temp_24h_val);
+            $("#humi_24h_id").text(humi_24h_val);
+            $("#co2_24h_id").text(co2_24h_val);
+            $("#voc_24h_id").text(voc_24h_val);
         }
     }
 
